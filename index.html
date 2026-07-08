@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantTrack // Algorithmic Portfolio Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></div>
+            <h1 class="text-xl font-mono font-bold tracking-wider uppercase text-emerald-400">QuantTrack v1.0</h1>
+        </div>
+        <div class="text-sm font-mono text-slate-400" id="last-updated">Status: Live Engine</div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-6 space-y-6">
+        
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4" id="metrics-grid">
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <p class="text-xs font-mono uppercase text-slate-400">Total Portfolio Value</p>
+                <p class="text-2xl font-bold tracking-tight text-white mt-1" id="metric-total-value">$0.00</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <p class="text-xs font-mono uppercase text-slate-400">Annualized Volatility</p>
+                <p class="text-2xl font-bold tracking-tight text-amber-400 mt-1" id="metric-volatility">0.00%</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                <p class="text-xs font-mono uppercase text-slate-400">Sharpe Ratio (Rf=2%)</p>
+                <p class="text-2xl font-bold tracking-tight text-emerald-400 mt-1" id="metric-sharpe">0.00</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+    <p class="text-xs font-mono uppercase text-slate-400">Daily VaR (95% Conf.)</p>
+    <p class="text-2xl font-bold tracking-tight text-rose-500 mt-1" id="metric-var">$0.00</p>
+</div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl space-y-4">
+                <h2 class="text-lg font-semibold border-b border-slate-800 pb-2">Add/Update Position</h2>
+                <form id="position-form" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Ticker / Asset Symbol</label>
+                        <input type="text" id="ticker" placeholder="e.g., AAPL, BTC, MSFT" required class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-white focus:outline-none focus:border-emerald-500 font-mono uppercase">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Quantity</label>
+                            <input type="number" id="quantity" step="any" placeholder="0.00" required class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-slate-400 mb-1">Avg Buy Price ($)</label>
+                            <input type="number" id="buy-price" step="any" placeholder="0.00" required class="w-full bg-slate-950 border border-slate-800 rounded px-3 py-2 text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 transition duration-200 text-slate-950 font-bold py-2 px-4 rounded font-mono uppercase text-sm">
+                        Execute Position Update
+                    </button>
+                </form>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl lg:col-span-2 flex flex-col justify-between">
+                <h2 class="text-lg font-semibold border-b border-slate-800 pb-2 mb-4">Risk Exposure & Allocation</h2>
+                <div class="relative flex-grow h-64 flex items-center justify-center">
+                    <canvas id="allocationChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-800">
+                <h2 class="text-lg font-semibold">Current Holdings Ledger</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs font-mono uppercase">
+                            <th class="p-4">Asset</th>
+                            <th class="p-4 text-right">Quantity</th>
+                            <th class="p-4 text-right">Avg Cost</th>
+                            <th class="p-4 text-right">Current Price</th>
+                            <th class="p-4 text-right">Market Value</th>
+                            <th class="p-4 text-right">P&L (%)</th>
+                            <th class="p-4 text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="portfolio-table-body" class="divide-y divide-slate-800/50 text-sm">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

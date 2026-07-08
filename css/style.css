@@ -1,0 +1,22 @@
+/* Custom fine-tuning for quantitative aesthetic */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #020617; /* Matches slate-950 */
+}
+::-webkit-scrollbar-thumb {
+    background: #334155; /* Matches slate-700 */
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #10b981; /* Matches emerald-500 */
+}
