@@ -8,7 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+<body class="bg-black text-amber-500 font-mono antialiased">
+
+</body>
 
     <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur px-6 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-3">
@@ -19,27 +21,26 @@
     </header>
 
     <main class="max-w-7xl mx-auto p-6 space-y-6">
-        
-        <section class="grid grid-cols-1 md:grid-cols-5 gap-4" id="metrics-grid">
-            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                <p class="text-xs font-mono uppercase text-slate-400">Total Portfolio Value</p>
-                <p class="text-2xl font-bold tracking-tight text-white mt-1" id="metric-total-value">$0.00</p>
+        <section class="grid grid-cols-1 md:grid-cols-5 gap-2" id="metrics-grid">
+            <div class="bg-slate-900 p-3">
+                <p class="text-xs">TOTAL PORTFOLIO VALUE</p>
+                <p class="text-2xl font-bold mt-1 text-white" id="metric-total-value">$0.00</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                <p class="text-xs font-mono uppercase text-slate-400">Annual Volatility ($\sigma$)</p>
-                <p class="text-2xl font-bold tracking-tight text-amber-400 mt-1" id="metric-volatility">0.00%</p>
+            <div class="bg-slate-900 p-3">
+                <p class="text-xs">ANNUAL VOLATILITY</p>
+                <p class="text-2xl font-bold mt-1" id="metric-volatility" style="color: #ffaa00;">0.00%</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                <p class="text-xs font-mono uppercase text-slate-400">Sharpe Ratio</p>
-                <p class="text-2xl font-bold tracking-tight text-emerald-400 mt-1" id="metric-sharpe">0.00</p>
+            <div class="bg-slate-900 p-3">
+                <p class="text-xs">SHARPE RATIO</p>
+                <p class="text-2xl font-bold mt-1 text-emerald-400" id="metric-sharpe">0.00</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                <p class="text-xs font-mono uppercase text-slate-400">Daily VaR (95%)</p>
-                <p class="text-2xl font-bold tracking-tight text-rose-500 mt-1" id="metric-var">$0.00</p>
+            <div class="bg-slate-900 p-3">
+                <p class="text-xs">DAILY VAR (95%)</p>
+                <p class="text-2xl font-bold mt-1 text-rose-500" id="metric-var">$0.00</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                <p class="text-xs font-mono uppercase text-slate-400">Portfolio Beta ($\beta$)</p>
-                <p class="text-2xl font-bold tracking-tight text-cyan-400 mt-1" id="metric-beta">1.00</p>
+            <div class="bg-slate-900 p-3">
+                <p class="text-xs">PORTFOLIO BETA ($\beta$)</p>
+                <p class="text-2xl font-bold mt-1 text-cyan-400" id="metric-beta">1.00</p>
             </div>
         </section>
 

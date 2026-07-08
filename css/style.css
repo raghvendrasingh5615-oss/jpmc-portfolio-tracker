@@ -1,22 +1,76 @@
-/* Custom fine-tuning for quantitative aesthetic */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* --- Bloomberg Terminal Core Theme --- */
+body {
+    background-color: #000000 !important;
+    color: #ffaa00 !important; /* Classic Bloomberg Amber */
+    font-family: 'Courier New', Courier, monospace !important;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
 }
 
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+/* Panel Box Elements */
+.bg-slate-900 {
+    background-color: #000000 !important;
+    border: 1px solid #333333 !important;
+    border-radius: 0px !important; /* Terminals use sharp edges */
 }
-::-webkit-scrollbar-track {
-    background: #020617; /* Matches slate-950 */
+
+/* Borders */
+.border-slate-800, .border-b, .divide-slate-800\/50 {
+    border-color: #222222 !important;
 }
-::-webkit-scrollbar-thumb {
-    background: #334155; /* Matches slate-700 */
-    border-radius: 3px;
+
+/* Headers & Labels */
+h1, h2, th {
+    color: #00ff00 !important; /* Terminal Green */
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: #10b981; /* Matches emerald-500 */
+
+p.text-slate-400, label {
+    color: #00ffff !important; /* Cyan Command Guides */
 }
+
+/* Interactive Input Commands */
+input, select {
+    background-color: #111111 !important;
+    border: 1px solid #555555 !important;
+    color: #ffffff !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    border-radius: 0px !important;
+}
+
+input:focus {
+    border-color: #ffaa00 !important;
+    outline: none;
+}
+
+/* Primary Execution Bricks */
+button {
+    background-color: #222222 !important;
+    color: #ffaa00 !important;
+    border: 1px solid #ffaa00 !important;
+    border-radius: 0px !important;
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    background-color: #ffaa00 !important;
+    color: #000000 !important;
+}
+
+/* Liquidate/Kill Option Override */
+button[onclick*="removePosition"] {
+    background-color: #000000 !important;
+    color: #ff0000 !important;
+    border: 1px solid #ff0000 !important;
+}
+button[onclick*="removePosition"]:hover {
+    background-color: #ff0000 !important;
+    color: #000000 !important;
+}
+
+/* Scrollbar Engineering */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #333333; }

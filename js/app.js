@@ -86,7 +86,7 @@ function runMonteCarloSimulation() {
         datasets.push({
             label: `Path ${p+1}`,
             data: pathData,
-            borderColor: `rgba(6, 182, 212, ${0.15 + (p * 0.08)})`,
+            borderColor: `rgba(255, 170, 0, ${0.15 + (p * 0.08)})`,
             borderWidth: 1.5,
             pointRadius: 0,
             fill: false
@@ -194,7 +194,7 @@ function renderChart() {
         type: 'doughnut',
         data: {
             labels: labels,
-            datasets: [{ data: data, backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6'], borderWidth: 2, borderColor: '#0f172a' }]
+            datasets: [{ data: data, backgroundColor: ['#ffaa00', '#00ff00', '#00ffff', '#ff00ff', '#ffffff', '#8b5cf6'], borderWidth: 2, borderColor: '#000000' }]
         },
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#94a3b8', font: { family: 'monospace' } } } } }
     });
